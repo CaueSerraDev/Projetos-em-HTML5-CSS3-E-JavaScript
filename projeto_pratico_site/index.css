@@ -128,7 +128,7 @@ a {
     */
     /*position: relative; */
     top: 1rem;
-    /*transform: rotate(2deg);*/ /* Rotaciona a imagem 2 graus no sentido horário */
+    transform: rotate(2deg); /* Rotaciona a imagem 2 graus no sentido horário */
 }
 
 .gallery__img-wrapper::after {  /* Seleciona o pseudo-elemento ::after de todos os elementos com a classe .gallery__img-wrapper */
@@ -145,6 +145,7 @@ a {
 
 .gallery__img-wrapper:nth-child(even)::after {
     left: 1rem; /* Posiciona o pseudo-elemento 1rem à direita da borda esquerda do contêiner pai */
+    margin-top: 0.5rem;
 }
 
 footer {
