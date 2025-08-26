@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    font-family: "Oxygen", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --color-background: #030207;
+    --color-white: #fff;
+    --color-blue: #1474b4;
+}
+body {
+    background-color: var(--color-background);
+    color: var(--color-white);
+}
+
+a {
+    color: var(--color-blue);
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), var(--color-background));  /* Aplica um fundo com degradê (de cima pra baixo): começa com preto transparente (10%) e vai até a cor definida na variável --color-background */
+    position: relative;  /* Define que esse elemento pode ser usado como referência para elementos filhos com position: absolute */
+    min-height: 100vh;  /* Garante que a seção (.hero) ocupe no mínimo 100% da altura da tela (viewport) */
+}
+
+.hero__background {
+    object-fit: cover;  /* Faz a mídia (imagem ou vídeo) preencher todo o espaço disponível sem distorcer, cortando o excesso se necessário */
+    position: absolute;  /* Posiciona o elemento de forma absoluta em relação ao container pai (que geralmente tem position: relative) */
+    top: 0;  /* Coloca o elemento encostado no topo do container */
+    height: 100vh;  /* Define a altura igual a 100% da altura da tela (viewport height) */
+    width: 100%;  /* Faz o elemento ocupar toda a largura do container/página */
+    z-index: -10;  /* Coloca o elemento no fundo da pilha (atrás de outros elementos),, se tirar o negativo ele vem pra frente */
+}
+.hero__foreground {
+    text-align: center;
+    padding-top: 40vh;  /* Adiciona um espaçamento interno no topo equivalente a 40% da altura da viewport (tela visível do navegador). 
+                            Isso "empurra" o conteúdo para baixo, ajudando a centralizar verticalmente de forma proporcional ao tamanho da tela. */
+    color: var(--color-white);  /* Define a cor do texto como branco, utilizando a variável CSS --color-white */
+}
+
+.hero__title {
+    font-size: 5rem; /* Define o tamanho da fonte como 5 vezes o tamanho base da fonte (geralmente 16px, então 5rem = 80px) */
+    font-weight: 300; /* Define a espessura da fonte como leve (300) */
+    letter-spacing: 0.5rem; /* Adiciona um espaçamento de 0.5rem entre as letras, aumentando a distância entre elas */
+}
+
+.hero__text {
+    margin-top: 2rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+}
+
+.section {
+    overflow: hidden;  /* Impede que o conteúdo que ultrapassa os limites do contêiner seja exibido */
+    padding: 0 8rem;  /* Adiciona um espaçamento interno de 8rem nas laterais esquerda e direita */
+    text-align: center;
+
+}
+
+.section__title {
+    font-size: 3rem;  /* Define o tamanho da fonte como 3 vezes o tamanho base da fonte (geralmente 16px, então 3rem = 48px) */
+    font-weight: 300;  /* Define a espessura da fonte como leve (300) */
+    margin: 4rem auto;  /* Adiciona uma margem de 4rem no topo e na base, e centraliza horizontalmente (auto) */
+}
+
+.section__img, .section__img-inline {
+    border-radius: .75rem;
+    /* eixo x, eixo y, blur, expansão/recuo, cor */
+    box-shadow: 0 1rem 2rem -0.5rem rgba(20, 116, 180, 0.25); /* Adiciona uma sombra ao redor da imagem para dar profundidade */
+    object-fit: cover; /* Faz a imagem preencher o contêiner sem distorcer, cortando partes se necessário */
+    object-position: top; /* Alinha a imagem ao topo do contêiner, útil quando a imagem é cortada */
+    position: relative; /* Permite que a imagem seja posicionada em relação ao seu contêiner pai */
+    max-height: 30rem; /* Define a altura máxima da imagem como 30rem */
+    width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+}
+
+.section__text, .section__text-inline {
+    font-size: 1.25rem; /* Define o tamanho da fonte como 1.25 vezes o tamanho base da fonte (geralmente 16px, então 1.25rem = 20px) */
+    line-height: 1.75; /* Define a altura da linnha (distancia entre as linhas)*/
+    margin: 4rem auto; /* Adiciona uma margem de 4rem no topo e na base, e centraliza horizontalmente (auto) */
+}
+
+.section__img-inline {
+    border-top-left-radius: 4rem; /* Arredonda apenas o canto superior esquerdo do elemento, criando uma curva com raio de 4rem.*/
+    border-bottom-right-radius: 4rem; /* Arredonda apenas o canto inferior direito do elemento, criando uma curva com raio de 4rem.*/
+    float: left; /* Faz o elemento flutuar à esquerda, permitindo que o texto envolva a imagem */
+    margin-right: 4rem; /* Adiciona um espaçamento de 4rem à direita da imagem, separando-a do texto */
+    margin-bottom: 2rem; /* Adiciona um espaçamento de 2rem abaixo da imagem, separando-a do texto que pode vir depois */
+    height: 25rem; /* Define a altura fixa da imagem como 25rem */
+    width: 20rem; /* Define a largura fixa da imagem como 20rem */
+}
+
+.section__text-inline {
+    margin-top: 6rem;
+    text-align: left; /* Alinha o texto à esquerda, diferente do padrão centralizado */
+}
+
+.section__text-inline > p {
+    margin-top: 1.5rem; /* Adiciona um espaçamento de 1.5rem acima de cada parágrafo dentro do elemento com a classe .section__text-inline */
+}
+
+#hangouts img {
+    object-position: center; /* Centraliza a imagem dentro do contêiner, útil quando a imagem é cortada */
+}
+
+.gallery__img {
+    border-radius: .75rem; /* Adiciona cantos arredondados à imagem com um raio de 0.75rem */
+    height: 16rem; /* Define a altura fixa da imagem como 16rem */
+    width: 16rem; /* Define a largura fixa da imagem como 16rem */
+    object-fit: cover; /* Faz a imagem preencher o contêiner sem distorcer, cortando partes se necessário */ 
+    transform: rotate(-2deg); /* deg = degrees */ /* Rotaciona a imagem 2 graus no sentido anti-horário */
+}
+
+.gallery__img-wrapper {
+    display: inline-block; /* Faz o contêiner se comportar como um elemento inline, mas permitindo definir largura e altura */
+    position: relative; /* Permite que o contêiner seja usado como referência para posicionamento absoluto de elementos filhos */
+}
+
+.gallery__img-wrapper + .gallery__img-wrapper { /* Seleciona todos os elementos .gallery__img-wrapper que são precedidos por outro elemento .gallery__img-wrapper */
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery__img-wrapper:nth-child(even) > .gallery__img { /* Seleciona todas as imagens dentro de contêineres .gallery__img-wrapper que são filhos de elementos pares (2º, 4º, 6º, etc.) */
+    /* 
+       ela é necessária para que a propriedade "top: 1rem;" abaixo tenha efeito.
+    */
+    /*position: relative; */
+    top: 1rem;
+    /*transform: rotate(2deg);*/ /* Rotaciona a imagem 2 graus no sentido horário */
+}
+
+.gallery__img-wrapper::after {  /* Seleciona o pseudo-elemento ::after de todos os elementos com a classe .gallery__img-wrapper */
+    content: ""; /* Necessário para criar um pseudo-elemento vazio */
+    background-color: rgb(228, 26, 26); /* Define a cor de fundo do pseudo-elemento como vermelho */
+    border-radius: 999px; /* Faz o pseudo-elemento ter bordas totalmente arredondadas, criando um círculo */
+    display: block; /* Faz o pseudo-elemento se comportar como um bloco, ocupando toda a largura disponível */
+    height: 1.25rem; /* Define a altura fixa do pseudo-elemento como 1.25rem */
+    width: 1.25rem; /* Define a largura fixa do pseudo-elemento como 1.25rem */
+    position: absolute; /* Permite posicionar o pseudo-elemento em relação ao contêiner pai (.gallery__img-wrapper) */
+    top: 0.25rem; /* Posiciona o pseudo-elemento 0.25rem abaixo do topo do contêiner pai */
+    right: 1rem;  /* Posiciona o pseudo-elemento 1rem à esquerda da borda direita do contêiner pai */
+}
+
+.gallery__img-wrapper:nth-child(even)::after {
+    left: 1rem; /* Posiciona o pseudo-elemento 1rem à direita da borda esquerda do contêiner pai */
+}
+
+footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+}
